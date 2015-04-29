@@ -5,5 +5,4 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :messages, dependent: :destroy
   validates :email, presence: true, length: { maximum: 255 }
-  has_secure_password
 end
