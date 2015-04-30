@@ -1,4 +1,5 @@
 <%if user_signed_in? %>
+
   <h1>Welcome <%= current_user.name ||= @user.email%>, to your online answering machine! </h1>
   <div class="container">
     <div class="row">
@@ -20,17 +21,21 @@
 <%else%>
 
   <h1>Welcome to my online answering machine! </h1>
-  <h2>
-    You want to leave a message?</br>
-    Just enter the email adress of your friend and click <%= link_to "here", new_message_path %>!
-  </h2>
-  <h2>
-    Already a user?</br>
-    Just <%= link_to "log in", new_user_session_path %>!
-  </h2>
-  <h2>
-    You want to join?</br>
-    Just <%= link_to "sign up", new_user_registration_path %>!
-  </h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2> You want to leave a message?</br>
+          Just enter the email adress of your friend and click <%= link_to "here", new_message_path %>!
+        </h2></div>
+      <div class="col-md-4">
+        <h2> Already a user?</br>
+          Just <%= link_to "log in", new_user_session_path %>!
+        </h2></div>
+      <div class="col-md-4">
+        <h2> You want to join?</br>
+          Just <%= link_to "sign up", new_user_registration_path %>!
+        </h2></div>
+    </div>
+  </div>    
 
 <%end%>
