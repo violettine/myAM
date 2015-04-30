@@ -1,7 +1,36 @@
-<h1>Home</h1>
-<h2>
-Logged in here will be the home page where the user can view his feed.</br>
-</br>
-You want to join?</br>
-Just <%= link_to "sign up", new_user_registration_path %>!
-</h2>
+<%if user_signed_in? %>
+  <h1>Welcome <%= current_user.name ||= @user.email%>, to your online answering machine! </h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h2>You want to leave a message?</br>
+          Just enter the email adress of your friend and click <%= link_to "here", new_message_path %>!
+        </h2></div>
+      <div class="col-md-4">
+        <h2>You want to go to see your messages?</br>
+          Just click <%= link_to "here", user_path(current_user) %>!
+        </h2></div>
+      <div class="col-md-4">
+        <h2>You want to visit your profile?</br>
+          Just click<%= link_to "here", user_path(current_user) %>!
+        </h2></div>
+    </div>
+  </div>
+
+<%else%>
+
+  <h1>Welcome to my online answering machine! </h1>
+  <h2>
+    You want to leave a message?</br>
+    Just enter the email adress of your friend and click <%= link_to "here", new_message_path %>!
+  </h2>
+  <h2>
+    Already a user?</br>
+    Just <%= link_to "log in", new_user_session_path %>!
+  </h2>
+  <h2>
+    You want to join?</br>
+    Just <%= link_to "sign up", new_user_registration_path %>!
+  </h2>
+
+<%end%>

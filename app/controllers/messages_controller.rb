@@ -2,7 +2,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!, only: [:create]
 
   def new
-    @message = current_user.messages.buildF
+    @message = current_user.messages.build
   end
 
   def create
