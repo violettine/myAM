@@ -1,6 +1,6 @@
 <%if user_signed_in? %>
 
-  <h1>Welcome <%= current_user.name ||= @user.email%>, to your online answering machine! </h1>
+  <h1>Welcome <%= current_user.name ||= current_user.email%>, to your online answering machine! </h1>
   <div class="container">
     <div class="row">
       <div class="col-md-4">
@@ -13,7 +13,7 @@
         </h2></div>
       <div class="col-md-4">
         <h2>You want to visit your profile?</br>
-          Just click<%= link_to "here", user_path(current_user) %>!
+          Just click <%= link_to "here", user_path(current_user) %>!
         </h2></div>
     </div>
   </div>
