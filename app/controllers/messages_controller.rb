@@ -1,11 +1,23 @@
 class MessagesController < ApplicationController
-  
-  # def create
-  #   @message = current_user.message.build(message_params)
-  # end
+  before_action :authenticate_user!, only: [:create]
 
-  # private
-  #   def message_params
-  #     params.require(:message).permit(:content)
-  #   end
+  def new
+    @message = current_user.messages.buildF
+  end
+
+  def create
+    @message = current_user.messages.build(message_params)
+    if @message.save
+      flash[:success] = 'Message created!'
+      redirect_to root_url
+    else
+      render 'pages/home'
+    end
+  end
+
+  private
+
+    def message_params
+      params.require(:message).permit(:content)
+    end
 end
