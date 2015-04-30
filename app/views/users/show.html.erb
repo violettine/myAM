@@ -1,15 +1,8 @@
 <% if user_signed_in? %>
- <div class="row">
-  <h1>
-  <%= @user.name ||= @user.email %>'s profile
-  </h1>
-    <div class="col-md-8">
-      <% if @user.messages.any? %>
-        <h3> Messages (<%= @user.messages.count %>)</h3>
-        <ol class="messages">
-          <%= render @messages %>
-        </ol>
-      <% end %>
-    </div>
+  <div class="row">
+    <h1>
+     <%= @user.name ||= @user.email %>'s profile
+    </h1>
+    
   </div>
 <% end %>
