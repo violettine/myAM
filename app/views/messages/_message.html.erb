@@ -4,7 +4,14 @@
     <%= image_tag message.picture.url if message.picture? %>
   </span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(message.created_at) %> ago.
+    Posted 
+    <% if message.created_at < Time.now - 1.hour %>
+       <%= time_ago_in_words(message.created_at) %> 
+        ago
+    <% else %>
+        <%= message.created_at.strftime("on %m/%d/%Y at %I:%M%p ") %>
+    <% end %> 
+         by <%= message.author %>.
     <%= link_to "delete", message, method: :delete,
                                        data: { confirm: "You sure?" } %>
   </span>

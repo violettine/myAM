@@ -8,7 +8,7 @@
         <%= form_for(@message, html: { multipart: true }) do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
           <div class="field">
-            Leave a message for 'Username' :
+            Leave a message for 'Username':
             <%= f.text_area :content, placeholder: "Compose new message..." %>
           </div>
 
@@ -16,6 +16,10 @@
             Want to add a picture?
             <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %> 
           </span> 
+          <div class="field">
+            Please enter your name:
+            <%= f.text_field :author %>
+          </div>
           <%= f.submit "Post", class: "btn btn-primary" %>
         <% end %>
 

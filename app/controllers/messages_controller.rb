@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
   private
 
     def message_params
-      params.require(:message).permit(:content, :picture)
+      params.require(:message).permit(:content, :picture, :author)
     end
 
     def correct_user
