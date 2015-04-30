@@ -5,6 +5,10 @@ class MessagesController < ApplicationController
     @message = current_user.messages.build
   end
 
+  def show
+    @messages = current_user.messages
+  end
+  
   def create
     @message = current_user.messages.build(message_params)
     if @message.save
@@ -18,6 +22,6 @@ class MessagesController < ApplicationController
   private
 
     def message_params
-      params.require(:message).permit(:content)
+      params.require(:message).permit(:content, :picture)
     end
 end

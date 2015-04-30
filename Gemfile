@@ -6,7 +6,9 @@ gem 'rails', '4.2.1'
 gem 'bootstrap-sass',       '3.2.0.0'
 gem 'devise'
 gem 'faker',        '1.4.2'
-
+gem 'carrierwave',             '0.10.0'
+gem 'mini_magick',             '3.8.0'
+gem 'fog',                     '1.23.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
