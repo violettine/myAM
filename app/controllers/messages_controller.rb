@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
   end
 
   def show
-    @messages = current_user.messages
+    @messages = current_user.messages.paginate(page: params[:page], per_page: 10)
   end
   
   def create
