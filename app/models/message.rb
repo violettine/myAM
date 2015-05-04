@@ -4,7 +4,7 @@ class Message < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :content, presence: true
-  validates :recipient, presence: true
+  #validates :recipient, presence: true
   validate :picture_size
 
   private
