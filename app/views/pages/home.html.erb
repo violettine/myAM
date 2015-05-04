@@ -4,16 +4,16 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h2>You want to leave a message?</br>
-          Just enter the email adress of your friend and click <%= link_to "here", new_message_path %>!
-        </h2></div>
-      <div class="col-md-4">
-        <h2>You want to go to see your messages?</br>
+        <h2>You want to see your messages?</br>
           Just click <%= link_to "here", user_path(current_user) %>!
         </h2></div>
       <div class="col-md-4">
         <h2>You want to visit your profile?</br>
           Just click <%= link_to "here", user_path(current_user) %>!
+        </h2></div>
+      <div class="col-md-4">
+        <h2>You want to leave a message for a friend?</br>
+          Just click <%= link_to "here", new_message_path %> and enter the name or email adress of your friend.
         </h2></div>
     </div>
   </div>
@@ -24,10 +24,6 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4">
-        <h2> You want to leave a message?</br>
-          Just enter the email adress of your friend and click <%= link_to "here", new_message_path %>!
-        </h2></div>
-      <div class="col-md-4">
         <h2> Already a user?</br>
           Just <%= link_to "log in", new_user_session_path %>!
         </h2></div>
@@ -35,7 +31,11 @@
         <h2> You want to join?</br>
           Just <%= link_to "sign up", new_user_registration_path %>!
         </h2></div>
-    </div>
-  </div>    
+      <div class="col-md-4">
+        <h2> You think "What is this website for??" ?</br>
+          Just click <%= link_to "here", pages_about_path %> and I tell you!
+        </h2></div>
+      </div>
+    </div>    
 
 <%end%>

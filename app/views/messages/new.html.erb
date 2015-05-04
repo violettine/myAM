@@ -1,14 +1,18 @@
 <% if user_signed_in? %>
   <div class="row">
-    <div class="col-md-4">
       <h2>New message</h2>
-    </div>
+
     <div class="col-md-4">
       <section class="messages_form">
         <%= form_for(@message, html: { multipart: true }) do |f| %>
           <%= render 'shared/error_messages', object: f.object %>
+
           <div class="field">
-            Leave a message for 'Username':
+            Leave a message for:
+            <%= f.text_field :recipient %>
+          </div>
+          <div class="field">
+            Your message:
             <%= f.text_area :content, placeholder: "Compose new message..." %>
           </div>
 
