@@ -21,8 +21,11 @@ class MessagesController < ApplicationController
   end
 
   def destroy
-    @message.destroy
-    flash[:success] = 'Message deleted!'
+    if @message.destroy
+      flash[:success] = "Message deleted!"
+    else
+      flash[:notice] = "We're sorry, but the message could not be deleted. Please try again later."
+    end
     redirect_to message_path
   end
 
