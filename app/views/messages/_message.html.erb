@@ -12,7 +12,7 @@
         <%= message.created_at.strftime("on %m/%d/%Y at %I:%M%p ") %>
     <% end %> 
     <% unless message.author.blank? %>
-         by <%= message.author %>.
+      by <%= message.author %>.
     <% end %>     
     <%= link_to "delete", message, method: :delete,
                                        data: { confirm: "You sure?" } %>
