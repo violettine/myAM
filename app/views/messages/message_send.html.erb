@@ -4,7 +4,7 @@
   <%= current_user.name ||= current_user.email %>'s messages:
   </h1>
     <div class="col-md-8">
-      <% if @messages.any? %>
+      <% if @messages.present? %>
         <h3> Messages (<%= @messages.count %>)</h3>
         <ol class="messages">
           <%= render @messages %>
