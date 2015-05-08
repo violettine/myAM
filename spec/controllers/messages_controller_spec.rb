@@ -1,6 +1,30 @@
 require 'rails_helper'
 
 RSpec.describe MessagesController, :type => :controller do
+  describe "Get #show" do
+    let!(:user) { create(:user) }
+
+    context "when user is not logged in" do
+      it "does not show messages" do
+        get :show, id: user.id
+
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
+  describe "Get #new" do
+    let!(:user) { create(:user) }
+
+    context "when user is not logged in" do
+      it "will not create new message" do
+        get :new
+
+        expect(response).to redirect_to new_user_session_path
+      end
+    end
+  end
+
   describe "POST #create" do
     let!(:user) { create(:user) }
 
@@ -44,6 +68,7 @@ RSpec.describe MessagesController, :type => :controller do
         expect(response).to redirect_to message_path
       end
     end
+
     context "when message to destroy is nil" do
       it "redirects to root_path" do
         sign_in user
