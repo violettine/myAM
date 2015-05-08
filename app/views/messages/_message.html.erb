@@ -11,7 +11,7 @@
     <% else %>
         <%= message.created_at.strftime("on %m/%d/%Y at %I:%M%p ") %>
     <% end %> 
-    <% unless message.author.blank? %>
+    <% if message.author? %>
          by <%= message.author %>.
     <% end %>     
     <%= link_to "delete", message, method: :delete,
