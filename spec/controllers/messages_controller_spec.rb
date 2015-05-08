@@ -44,6 +44,22 @@ RSpec.describe MessagesController, :type => :controller do
         
         expect(response).to redirect_to root_url
       end
+
+      it "creates a new message" do
+        sign_in user
+
+        expect{post :create, message: attributes_for(:message)}.to change(Message, :count).by(1) 
+      end
+    end
+
+    context "when message save is no success" do
+      it "renders to pages/home" do
+        sign_in user
+
+        post :create, message: attributes_for(:invalid_message)
+
+        expect(response).to render_template("pages/home")
+      end
     end
   end
 
