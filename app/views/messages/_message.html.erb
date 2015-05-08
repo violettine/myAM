@@ -5,14 +5,9 @@
   </span>
   <span class="timestamp">
     Posted 
-    <% if message.created_at < Time.now - 1.hour %>
-       <%= time_ago_in_words(message.created_at) %> 
-        ago
-    <% else %>
-        <%= message.created_at.strftime("on %m/%d/%Y at %I:%M%p ") %>
-    <% end %> 
+    <%= timestamp_for_messages(message) %>
     <% unless message.author.blank? %>
-         by <%= message.author %>.
+      by <%= message.author %>.
     <% end %>     
     <%= link_to "delete", message, method: :delete,
                                        data: { confirm: "You sure?" } %>
