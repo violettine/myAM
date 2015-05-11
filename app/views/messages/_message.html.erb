@@ -6,8 +6,8 @@
   <span class="timestamp">
     Posted 
     <%= timestamp_for_messages(message) %>
-    <% unless message.author.blank? %>
-      by <%= message.author %>.
+    <% if message.author? %>
+         by <%= message.author %>.
     <% end %>     
     <%= link_to "delete", message, method: :delete,
                                        data: { confirm: "You sure?" } %>
