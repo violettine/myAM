@@ -60,6 +60,12 @@ RSpec.describe MessagesController, :type => :controller do
 
         expect(response).to render_template("pages/home")
       end
+
+      it "creates no new message" do
+        sign_in user
+
+        expect{post :create, message: attributes_for(:invalid_message)}.to change(Message, :count).by(0) 
+      end
     end
   end
 
@@ -82,6 +88,12 @@ RSpec.describe MessagesController, :type => :controller do
         delete :destroy, id: message.id
 
         expect(response).to redirect_to message_path
+      end
+
+      it "counts less messages" do
+        sign_in user
+
+        expect{delete :destroy, id: message.id}.to change(Message, :count).by(-1)
       end
     end
 
