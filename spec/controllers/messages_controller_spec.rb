@@ -4,7 +4,7 @@ RSpec.describe MessagesController, :type => :controller do
   describe "Get #show" do
     let!(:user) { create(:user) }
 
-    context "when user is not logged in" do
+    context "when a user is not logged in" do
       it "does not show messages" do
         get :show, id: user.id
 
@@ -16,7 +16,7 @@ RSpec.describe MessagesController, :type => :controller do
   describe "Get #new" do
     let!(:user) { create(:user) }
 
-    context "when user is not logged in" do
+    context "when a user is not logged in" do
       it "will not create new message" do
         get :new
 
@@ -28,7 +28,7 @@ RSpec.describe MessagesController, :type => :controller do
   describe "POST #create" do
     let!(:user) { create(:user) }
 
-    context 'when message save is a success' do
+    context 'when a message is successfully saved' do
       it "flashes success" do
         sign_in user
 
@@ -52,7 +52,7 @@ RSpec.describe MessagesController, :type => :controller do
       end
     end
 
-    context "when message save is no success" do
+    context "when a message is not successfully saved" do
       it "renders to pages/home" do
         sign_in user
 
@@ -73,7 +73,7 @@ RSpec.describe MessagesController, :type => :controller do
     let!(:user) { create(:user) }
     let!(:message) { create(:message) }
 
-    context "when message destroy is a success" do
+    context "when a message is successfully destroyed" do
       it "flashes success" do
         sign_in user
         
@@ -97,7 +97,7 @@ RSpec.describe MessagesController, :type => :controller do
       end
     end
 
-    context "when message to destroy is nil" do
+    context "when the message to destroy is nil" do
       it "redirects to root_path" do
         sign_in user
 
